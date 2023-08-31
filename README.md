@@ -1,19 +1,33 @@
 # Try-fastAPI
 ## インストール
-pip3 install -r requirements.txt
+```ターミナル
+-pip3 install -r requirements.txt
+```
 
 ## 起動
-cd app
-uvicorn main:app --reload 
+```ターミナル
+-cd app
+-uvicorn main:app --reload 
+```
 
 ## curlコマンド；HTTP GET リクエスト
 ### エンドポイント：ルート（/）
-curl localhost:8000
+```ターミナル
+-curl localhost:8000
+```
 ### エンドポイント：/items/123
-curl "localhost:8000/items/123"
+```ターミナル
+-curl "localhost:8000/items/123"
+```
 ### エンドポイント：/items/123 クエリ指定
-curl "localhost:8000/items/123?q=hoge"
+```ターミナル
+-curl "localhost:8000/items/123?q=hoge"
+```
 
 ## curlコマンド；HTTP POST リクエスト
-curl -X POST "http://localhost:8000/items" -H "Content-Type: application/json" -d "{\"name\":\"おなまえ\",\"price\":123}"
-{"item_name":"おなまえ","twice price":246.0}
+```ターミナル
+-curl -X POST "http://localhost:8000/items" -H "Content-Type: application/json" -d "{\"name\":\"アイテム\",\"price\":123}"
+```
+-X POST: -X オプションを使用して、HTTPメソッドをPOSTに指定  
+-H "Content-Type: application/json": リクエストヘッダーを指定。Content-Type ヘッダーを application/json に設定して、送信するデータが JSON 形式であることを指定している。  
+-d "{\"name\":\"アイテム\",\"price\":123}": リクエストボディを指定。JSONオブジェクトを送信している。
