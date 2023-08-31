@@ -1,4 +1,6 @@
 # Try-fastAPI
+FastAPIを初めて利用して作成
+
 ## インストール
 ```ターミナル
 pip3 install -r requirements.txt
@@ -28,11 +30,11 @@ curl "localhost:8000/items/123?q=hoge"
 ```ターミナル
 curl -X POST "http://localhost:8000/items" -H "Content-Type: application/json" -d "{\"name\":\"アイテム\",\"price\":123}"
 ```
-##### -X POST
+#### -X POST
 -X オプションを使用して、HTTPメソッドをPOSTに指定  
-##### -H "Content-Type: application/json"
+#### -H "Content-Type: application/json"
 リクエストヘッダーを指定。Content-Type ヘッダーを application/json に設定して、送信するデータが JSON 形式であることを指定している。  
-##### -d "{\"name\":\"アイテム\",\"price\":123}"
+#### -d "{\"name\":\"アイテム\",\"price\":123}"
 リクエストボディを指定。JSONオブジェクトを送信している。
 
 ## docker
@@ -40,24 +42,24 @@ curl -X POST "http://localhost:8000/items" -H "Content-Type: application/json" -
 ```ターミナル
 docker build -t sample-api:1.0.0 .
 ```
-##### -t sample-api:1.0.0
+#### -t sample-api:1.0.0
 -t オプションは、ビルドされるイメージにタグ（Tag）を付ける。イメージ名とタグは任意で、イメージを識別するために使用。  
 イメージ名：sample-api  
 タグ：1.0.0  
-##### .
+#### "."
 最後の"."はカレントディレクトリを表す。このディレクトリ内に Dockerfile が存在し、それを使用して Docker イメージがビルドされる。
 
 ### コンテナを実行
 ```ターミナル
 docker run -d --name sample-api-container -p 80:80 sample-api:1.0.0
 ```
-##### -d
+#### -d
 -d オプションはコンテナをデタッチドモード（バックグラウンドモード）で実行
-##### --name sample-api-container
+#### --name sample-api-container
 コンテナの名前は「sample-api-container」となる
-##### -p 80:80 
+#### -p 80:80 
 ホストのポート80を介してコンテナのポート80にアクセスできるようになる
-##### sample-api:1.0.0
+#### sample-api:1.0.0
 実行するコンテナのイメージを指定
 
 ### コンテナの外からcurlを打つ
